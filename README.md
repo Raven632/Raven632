@@ -1,18 +1,15 @@
+# Khalil Velinov
 
+Junior DevOps — infrastructure, automation and containers.
 
-<!--
-**Raven632/Raven632** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Currently studying IT  while finishing a B.Sc. in Software Engineering. Most of what I build runs on Proxmox: clusters, Terraform and Ansible provisioning, and Kubernetes on top.
 
-Here are some ideas to get you started:
+**Working with**
+Proxmox VE · Ceph · Terraform · Ansible · Kubernetes · Docker · Linux · GitOps / CI-CD
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+**Currently**
+Preparing for the HashiCorp Certified: Terraform Associate exam.
 
-# You will never be happy if you continue to search for what happiness consists of. You will never live if you are looking for the meaning of life.
+**Selected work**
+- [`praktika`](https://github.com/Raven632/praktika) — 3-node Proxmox HA cluster provisioned entirely through Terraform and Ansible, with CI/CD pipelines, remote state in MinIO and SSO via authentik
+- [`rpg-web-library`](https://github.com/Raven632/rpg-web-library) — self-hosted game library, Node.js and Docker
