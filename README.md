@@ -7,11 +7,44 @@ Right now I'm preparing for the HashiCorp Terraform Associate exam.
 
 ### Internship at partimus GmbH (Limburg, May to June 2026)
 
-During my DevOps internship I set up a 3-node Proxmox VE cluster with Ceph and SDN and moved VM
-provisioning to Terraform and Ansible. Terraform state is stored in MinIO, changes go through a Forgejo
-pipeline instead of someone running `terraform apply` on their laptop, and logins go through authentik
-(OIDC). I also built Kubernetes by hand following Kubernetes The Hard Way, mostly to see what the
-installers normally hide from you.
+Two months of DevOps work on a Proxmox lab where nothing gets clicked together in the web UI:
+every VM and service comes from a commit.
+
+```
+                     ┌──────────────────────────┐
+   git commit  ────► │  Forgejo (self-hosted)   │
+                     │  CI/CD pipeline          │
+                     └────────────┬─────────────┘
+                                  │
+                    ┌─────────────┴──────────────┐
+                    ▼                            ▼
+            ┌───────────────┐            ┌───────────────┐
+            │   Terraform   │            │    Ansible    │
+            │  (provision)  │            │  (configure)  │
+            └───────┬───────┘            └───────┬───────┘
+                    │                            │
+                    │  state ──► MinIO (S3)      │
+                    │                            │
+                    ▼                            ▼
+      ┌──────────────────────────────────────────────────┐
+      │        Proxmox VE, 3-node HA cluster             │
+      │        Ceph storage  ·  SDN  ·  PegaProx         │
+      ├──────────────────────────────────────────────────┤
+      │  VMs / CTs  ·  Fedora CoreOS  ·  Kubernetes      │
+      │  authentik (SSO / OIDC)                          │
+      └──────────────────────────────────────────────────┘
+```
+
+- set up the 3-node cluster with Ceph and SDN (three nodes is the minimum for a Ceph quorum and
+  real HA)
+- Terraform clones VMs from a Cloud-Init template. State is in MinIO, so `terraform apply` only runs
+  in CI, never from someone's laptop, and credentials come from CI secrets
+- built the same VM setup a second time with Ansible only, to compare the two tools on one task
+- authentik as the single login (OIDC) for the cluster. Its secrets are generated on the host during
+  the deploy, nothing is committed
+- Fedora CoreOS VMs configured with Butane, turned into Ignition by Terraform at apply time
+- set up Kubernetes by hand following Kubernetes The Hard Way (etcd, API server, kubelet, TLS, CNI),
+  then worked through the K8sQuest troubleshooting challenges
 
 Code and notes: [Praktika_](https://github.com/Raven632/Praktika_)
 
@@ -40,5 +73,5 @@ systemd timers, alerts go to Telegram, and I reach everything over Tailscale.
 
 ### Tools
 
-Proxmox, Ceph, Linux, Terraform, Ansible, Cloud-Init, Kubernetes, Docker, Forgejo CI, GitHub Actions,
-authentik, MinIO, Bash, Node.js, React, SQLite, Redis, Playwright
+Proxmox, Ceph, Linux, Terraform, Ansible, Cloud-Init, Fedora CoreOS, Kubernetes, Docker, Forgejo CI,
+GitHub Actions, authentik, MinIO, Bash, Node.js, React, SQLite, Redis, Playwright
