@@ -48,6 +48,24 @@ every VM and service comes from a commit.
 
 Code and notes: [Praktika_](https://github.com/Raven632/Praktika_)
 
+### City of Code (school project, in progress)
+
+A team project at the Friedrich-Dessauer-Schule in Limburg, August 2026 to March 2027: a browser game
+that teaches Python. Students write code in an editor in the browser, and every task they solve adds a
+building to their own 2D city. There are three of us. I'm the project lead and I do the backend,
+the database and the deployment. Backend work is new to me, so I'm learning it while I write it.
+
+- student code never runs on our server: it runs in the browser with Pyodide inside a Web Worker,
+  and the worker gets killed if a solution loops forever
+- Flask API with JWT: students sign up with a class code, teachers get an overview of their class
+- SQLAlchemy on SQLite, deployed with Docker on a VPS (Gunicorn behind Nginx)
+- we planned it properly: a requirements spec with a test for every requirement and a network plan
+  with a critical path to the deadline
+
+So far the database design is done (7 tables, documented with an ER diagram), the Flask API is next.
+
+Code: [City-of-Code](https://github.com/Raven632/City-of-Code)
+
 ### RPG Library
 
 I wanted to play my RPG Maker games from my home server on my phone, so I wrote
@@ -74,4 +92,5 @@ systemd timers, alerts go to Telegram, and I reach everything over Tailscale.
 ### Tools
 
 Proxmox, Ceph, Linux, Terraform, Ansible, Cloud-Init, Fedora CoreOS, Kubernetes, Docker, Forgejo CI,
-GitHub Actions, authentik, MinIO, Bash, Node.js, React, SQLite, Redis, Playwright
+GitHub Actions, authentik, MinIO, Bash, Node.js, React, Python, Flask, SQLAlchemy, SQLite, Redis,
+Playwright
