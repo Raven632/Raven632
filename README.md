@@ -1,14 +1,25 @@
 # Khalil Velinov
 
-Junior DevOps engineer. Studying IT while finishing my B.Sc. in Software Engineering.
-Most of what I build runs on Proxmox at home, and I try to automate whatever I end up doing twice.
+Junior DevOps engineer in TODO-CITY, Germany. I build infrastructure on Proxmox, automate it with
+Terraform and Ansible, and run my own apps in Docker with CI/CD.
 
-Right now I'm preparing for the HashiCorp Terraform Associate exam.
+- **Looking for:** TODO-ROLE (for example: a junior DevOps or Linux admin position, full-time or as a
+  working student), from TODO-DATE
+- **Languages:** German (TODO), English (TODO), Russian (TODO)
+- **Contact:** [TODO-EMAIL](mailto:TODO-EMAIL) · [LinkedIn](TODO-LINK) · [CV (PDF)](TODO-LINK)
 
-### Internship at partimus GmbH (Limburg, May to June 2026)
+### Experience
 
-Two months of DevOps work on a Proxmox lab where nothing gets clicked together in the web UI:
-every VM and service comes from a commit.
+**DevOps intern, partimus GmbH** (Limburg, May to June 2026)
+
+- set up a 3-node Proxmox VE cluster with Ceph and SDN
+- moved VM provisioning to Terraform (Cloud-Init templates, state in MinIO) and Ansible;
+  every change goes through a Forgejo CI pipeline, nobody runs `terraform apply` by hand
+- deployed authentik as the single login (OIDC) for the lab, Fedora CoreOS with Butane/Ignition
+- built Kubernetes by hand (Kubernetes The Hard Way) and worked through the K8sQuest challenges
+
+<details>
+<summary>How the lab is wired</summary>
 
 ```
                      ┌──────────────────────────┐
@@ -35,62 +46,40 @@ every VM and service comes from a commit.
       └──────────────────────────────────────────────────┘
 ```
 
-- set up the 3-node cluster with Ceph and SDN (three nodes is the minimum for a Ceph quorum and
-  real HA)
-- Terraform clones VMs from a Cloud-Init template. State is in MinIO, so `terraform apply` only runs
-  in CI, never from someone's laptop, and credentials come from CI secrets
-- built the same VM setup a second time with Ansible only, to compare the two tools on one task
-- authentik as the single login (OIDC) for the cluster. Its secrets are generated on the host during
-  the deploy, nothing is committed
-- Fedora CoreOS VMs configured with Butane, turned into Ignition by Terraform at apply time
-- set up Kubernetes by hand following Kubernetes The Hard Way (etcd, API server, kubelet, TLS, CNI),
-  then worked through the K8sQuest troubleshooting challenges
+</details>
 
 Code and notes: [Praktika_](https://github.com/Raven632/Praktika_)
 
-### City of Code (school project, in progress)
+### Projects
 
-A team project at the Friedrich-Dessauer-Schule in Limburg, August 2026 to March 2027: a browser game
-that teaches Python. Students write code in an editor in the browser, and every task they solve adds a
-building to their own 2D city. There are three of us. I'm the project lead and I do the backend,
-the database and the deployment. Backend work is new to me, so I'm learning it while I write it.
+**[RPG Library](https://github.com/Raven632/rpg-library)**: a self-hosted web app for playing RPG Maker
+games in the browser, which I build and run on my home server. Node.js, React, SQLite, Redis, Docker.
+In development since March 2026 (200+ commits). GitHub Actions runs the tests, and the server deploys
+new versions itself, checks that they start and rolls back if they don't. Games run on a separate
+origin, so their scripts can't touch the library API.
 
-- student code never runs on our server: it runs in the browser with Pyodide inside a Web Worker,
-  and the worker gets killed if a solution loops forever
-- Flask API with JWT: students sign up with a class code, teachers get an overview of their class
-- SQLAlchemy on SQLite, deployed with Docker on a VPS (Gunicorn behind Nginx)
-- we planned it properly: a requirements spec with a test for every requirement and a network plan
-  with a critical path to the deadline
-
-So far the database design is done (7 tables, documented with an ER diagram), the Flask API is next.
-
-Code: [City-of-Code](https://github.com/Raven632/City-of-Code)
-
-### RPG Library
-
-I wanted to play my RPG Maker games from my home server on my phone, so I wrote
-[rpg-library](https://github.com/Raven632/rpg-library). I've been working on it since March 2026
-(200+ commits) and it runs on my server for real use.
-
-- Node.js/Express backend with SQLite and Redis, React frontend
-- games run on their own origin (separate port, per-game keys, CSP), so a game's scripts can't call
-  the library API
-- uploads go in chunks and continue after a dropped connection. One bug took me a while: on iOS the
-  response to a big upload request never arrives, so the client now checks every chunk with a
-  separate small request
-- cloud saves with history, and an old save from a phone that was offline can't overwrite a newer one
-- GitHub Actions runs the tests, the server pulls new versions on its own, checks that they start and
-  rolls back if they don't
+<details>
+<summary>Screenshot</summary>
 
 <img src="https://raw.githubusercontent.com/Raven632/rpg-library/main/rest/img/library.png" alt="RPG Library" width="700">
 
-### Homelab
+</details>
 
-Proxmox with Docker on top. The library runs there as a prod and a dev stack, deploys and backups are
-systemd timers, alerts go to Telegram, and I reach everything over Tailscale.
+**[City of Code](https://github.com/Raven632/City-of-Code)**: a school team project (three of us,
+until March 2027), a browser game that teaches Python. I'm the project lead and do the backend,
+which I'm learning as I build it: Flask, JWT, SQLAlchemy, Docker on a VPS. Student code runs in the
+browser with Pyodide, never on our server. The database design is done, the API is next.
 
-### Tools
+**Homelab**: Proxmox with Docker. My apps run there as prod and dev stacks, deploys and backups are
+systemd timers, alerts go to Telegram, access over Tailscale.
 
-Proxmox, Ceph, Linux, Terraform, Ansible, Cloud-Init, Fedora CoreOS, Kubernetes, Docker, Forgejo CI,
-GitHub Actions, authentik, MinIO, Bash, Node.js, React, Python, Flask, SQLAlchemy, SQLite, Redis,
-Playwright
+### Skills
+
+Proxmox, Ceph, Linux, Bash, Terraform, Ansible, Cloud-Init, Docker, Kubernetes, Forgejo CI,
+GitHub Actions, authentik, MinIO, Node.js, React, Python, Flask, SQLAlchemy, SQLite, Redis
+
+### Education
+
+- IT at Friedrich-Dessauer-Schule, Limburg (TODO: name of the program, until TODO)
+- B.Sc. Software Engineering, TODO-UNIVERSITY (expected TODO)
+- preparing for HashiCorp Certified: Terraform Associate
