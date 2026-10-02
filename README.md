@@ -5,7 +5,7 @@ Terraform and Ansible, and run my own apps in Docker with CI/CD.
 
 - **Looking for:** junior DevOps, from july 2027
 - **Languages:** German (B2), English (B2), Russian (Native), Ukrainian (Native)
-- **Contact:** [E-mail](mailto:halvelinov@gmail.com) · [LinkedIn]([TODO-LINK](https://www.linkedin.com/in/khalil-velinov-2559392a2/?isSelfProfile=true)) · [CV (PDF)](TODO-LINK)
+- **Contact:** [E-mail](mailto:halvelinov@gmail.com) · [Linkedin](https://www.linkedin.com/in/khalil-velinov-2559392a2/?isSelfProfile=true) · [CV (PDF)](TODO-LINK)
 
 ### Experience
 
