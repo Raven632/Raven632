@@ -3,10 +3,10 @@
 Junior DevOps engineer in TODO-CITY, Germany. I build infrastructure on Proxmox, automate it with
 Terraform and Ansible, and run my own apps in Docker with CI/CD.
 
-- **Looking for:** TODO-ROLE (for example: a junior DevOps or Linux admin position, full-time or as a
-  working student), from TODO-DATE
-- **Languages:** German (TODO), English (TODO), Russian (TODO)
-- **Contact:** [TODO-EMAIL](mailto:TODO-EMAIL) · [LinkedIn](TODO-LINK) · [CV (PDF)](TODO-LINK)
+- **Looking for:** junior DevOps (for example: a junior DevOps or Linux admin position, full-time or as a
+  working student), from jun
+- **Languages:** German (B2), English (B2), Russian (Native), Ukrainian (Native)
+- **Contact:** [halvelinov@gmail.com](mailto:halvelinov@gmail.com) · [LinkedIn](TODO-LINK) · [CV (PDF)](TODO-LINK)
 
 ### Experience
 
