@@ -8,7 +8,7 @@ Terraform and Ansible, and run my own apps in Docker with CI/CD.
 
 ### Experience
 
-**DevOps intern, partimus GmbH** (Limburg, May to June 2026)
+**DevOps intern
 
 - set up a 3-node Proxmox VE cluster with Ceph and SDN
 - moved VM provisioning to Terraform (Cloud-Init templates, state in MinIO) and Ansible;
